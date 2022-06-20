@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        a = prompt("Enter tha value of a");     
+        b = prompt("Enter tha value of b");
+        op = prompt("Enter your decision sum,sub,multi,div");
+
+        if(op=="sum"){
+            document.write("The sum is = "+a+b);
+        }
+        else if(op=="sub"){
+            document.write("The substraction is = ",a-b);       //We can write "",a+b or ""+a+b;
+        }
+        else if(op=="multi"){
+            document.write("The Multiplication is = ",a*b);
+        }
+        else if(op=="div"){
+            document.write("The Div is = ",a/b);
+        }
+        else{
+            document.write("Please enter the valide option!");
+        }
+    </script>
+</body>
+</html>
