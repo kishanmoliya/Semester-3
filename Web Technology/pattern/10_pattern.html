@@ -1,9 +1,9 @@
 <!-- /*
-    *
-    * *
-    * * *         
-    * * * *
-    * * * * *
+        1
+        2 3
+        4 5 6
+        7 8 9 10
+        11 12 13 14 15
 */ -->
 
 <!DOCTYPE html>
@@ -17,13 +17,11 @@
 <body>
     <script>
         n = prompt("Enter tha value of n");
-
+        count = 1;
         for(i=1;i<=n;i++){
-            for(j=n;j<i;j++){
-                document.write("s");
-            }
-            for(k=1;k<=i;k++){
-                document.write("* ");
+            for(j=1;j<=i;j++){
+                document.write(count+" ");
+                count ++;
             }
             document.write("<br/>");
         }
