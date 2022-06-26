@@ -87,7 +87,7 @@ Delete From Student_info
 Where Division = 'BCX-3'
 
 --18. Change Column Name Email to EmailAddress.
-sp_rename 'Student_info.Email','Student_info.EmailAddress', 'Column'
+sp_rename 'Student_info.Student_info.EmailAddress','EmailAddress', 'Column'
 
 --19. Write an SQL query to clone a new table Student_New from Student table with all data.
 select * into Student_New From Student_info
