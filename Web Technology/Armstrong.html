@@ -6,28 +6,27 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var n1 = (prompt("Enter tha value of n = ")
-		len=n1.length();
-		n = parseInt(n1);
+		var a = prompt("Enter tha value of n = ")
+		len=a.length;
+		n = parseInt(a);
 		sum=0;
 		temp = n;
 		while(n>0){
 			rem=n%10;
-			sum+=math.pow(rem,len);
-			n=parseInt(n1);
+			
+			sum+=Math.pow(rem,len);
+			n = n/10;
+			n = parseInt(n);
+		}
 
-			if(sum==temp){
-				document.write("Number is armstrong");
-			}
-			else{
-				document.write("Number is Not armstrong");
-			}
+		document.write(sum);
+		if(sum==temp){
+			document.write("Number is armstrong");
+		}
+		else{
+			document.write("Number is Not armstrong");
 		}
 		
 	</script>
 </body>
 </html>
-<!-- for(arm=0,x=n;n>0;n=n/10)
-	{
-		y=n%10;
-		arm=(y*y*y)+arm; -->
