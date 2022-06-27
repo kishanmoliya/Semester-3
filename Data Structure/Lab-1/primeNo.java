@@ -1,22 +1,22 @@
+/* Write a program to check whether a number is prime or not.  */
+
 import java.util.Scanner;
 public class primeNo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the value of n = ");
         int n = sc.nextInt();
-        int flage = 1;
-        primeNo pr = new primeNo();
-
-        if(flage == 2){
-            System.out.println("Number is Not"+pr.findPrimeNo(n));
+        
+        if(findPrimeNo(n) == 1){
+            System.out.println("Number is Not Prime");
         }
         else{
-            System.out.println("Number is "+pr.findPrimeNo(n));
+            System.out.println("Number is Prime");
         }
     }
    
-    public int findPrimeNo(int n){
-        int flage = 1;
+    static int findPrimeNo(int n){
+        int flage = 0;
         for(int i=2;i<=n/2;i++){
             if(n%i==0){
                 flage ++;
