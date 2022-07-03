@@ -27,10 +27,7 @@ public class MatrixMulti {
         System.out.println("Multiplication of two Matrix is : ");
         for(int i = 0; i < 3 ; i++){
             for(int j = 0; j < 3; j++){
-            
-                for(int k = 0; k < 2; k++){
-                    matrix3[i][j] = matrix3[i][j] + (matrix1[i][k] * matrix2[k][j]);
-                }
+                matrix3[i][j] = matrix1[i][0] * matrix2[0][j] + matrix1[i][1] + matrix2[1][j];
                 System.out.print(matrix3[i][j] + " ");
             }
             System.out.println();

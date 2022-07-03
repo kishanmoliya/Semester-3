@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Enetr the value of n = "));
+        var arr = new Array();
+        for(i=0;i<n;i++){
+            arr[i] = parseInt(prompt("Enter "+(i+1)+" array element : "));
+        }
+        
+        for(i=0;i<n;i++){
+            for(j=i+1;j<n;j++){
+                if(arr[i] > arr[j]){
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = temp;
+                }
+            }
+        }
+        for(k=0;k<n;k++){
+            document.write(arr[k]+"<br/>");
+        }
+    </script>
+</body>
+</html>

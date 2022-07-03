@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Enter the vlaue of n = "));
+        let arr = new Array();
+        document.write("Array elements is = ");
+        for(i=0;i<n;i++){
+            arr[i] = parseInt(prompt("Enter the "+(i+1)+" array elemet : "));
+            document.write(+arr[i]+" ");
+        }
+
+        MaxValue = parseInt(arr[0]);
+        for(i=1;i<n;i++){
+            if(MaxValue < arr[i]){
+                MaxValue = arr[i];
+            }
+        }
+        document.write("<br/> Maximum value of this arry is = "+MaxValue);
+    </script>
+</body>
+</html>
