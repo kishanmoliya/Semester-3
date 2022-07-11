@@ -1,8 +1,8 @@
+/* Implement a program for stack that performs following operations using array: PUSH, POP, PEEP, 
+CHANGE & DISPLAY */
 import java.util.Scanner;
 class Stack_Operation{
-    private Scanner sc;
-    int n = sc.nextInt();
-    int stack[] = new int[n];
+    int stack[] = new int[25];
     int top = -1;
 
     public void push(int x){
@@ -47,7 +47,7 @@ class Stack_Operation{
 
     public void display(){
         if(top<=-1){
-            System.out.println("Stack UnderFlow!");
+            System.out.println("Stack is Empty!");
         }
         else{
             while(top != -1){
@@ -68,6 +68,8 @@ public class Stack_UDF{
         System.out.println("3 -> Peep The element...");
         System.out.println("4 -> Change The element...");
         System.out.println("5 -> Display The element...");
+        System.out.println("6 -> Exit...");
+
 
         while(true){
             System.out.print("Enter the opration = ");
@@ -102,6 +104,9 @@ public class Stack_UDF{
 
                 case 6 :
                 System.exit(0);
+
+                default :
+                System.out.println("Pleasde enter the valid Operation...");
             }
         }
     }
