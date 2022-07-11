@@ -1,6 +1,8 @@
 import java.util.Scanner;
 class Stack_Operation{
-    int stack[] = new int[25];
+    private Scanner sc;
+    int n = sc.nextInt();
+    int stack[] = new int[n];
     int top = -1;
 
     public void push(int x){

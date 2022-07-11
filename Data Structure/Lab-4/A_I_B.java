@@ -10,8 +10,6 @@ public class A_I_B{
             a++;
             else if(I.charAt(i) == 'b')
             b++;
-            else
-            System.out.println("Invalid String!");
         }
         if(a == b)
         System.out.println("Valid String");
