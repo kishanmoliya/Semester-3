@@ -5,57 +5,65 @@ Number of ‘a’ should be equal to number of ‘b’.
  */
 import java.util.Scanner;
 
-class aib {
+
+class checkString{
     int top = -1;
-    String stack[] = new String[25];
+    char stack[] = new char[100];
     int a = 0, b = 0;
 
-    public void pushString(String I) {
-        if (top >= 25) {
+    public void push(char n) {
+        if (top >= 99) {
             System.out.println("Stack OverFlow");
         } else {
             top++;
-            stack[top] = I;
+            stack[top] = n;
         }
     }
+    public char pop(){
+        if(top <= -1){
+            System.out.println("Stack UnderFlow");
+        }
+        char element = stack[top];
+        top--;
+        return element;
+    }
 
-    public void Compaire_A_B() {
-        if (top <= -1) {
-            System.out.println("Stack is Empty!");
-        } else {
-            while (top != -1) {
-                // if (top == 'a') {
-                // a++;
-                // } else if (top == 'b') {
-                // b++;
-                // }
-                System.out.println(stack[top]);
-                top--;
+    public void resultString(int x){
+        for(int i = 0; i < x; i++){
+            char element = pop();
+            if(element == 'a'){
+                a++;
             }
-
-            // System.out.println("A = " + a);
-            // System.out.println("B = " + b);
+            else if(element == 'b'){
+                b++;
+            }
+        }
+        if(a == b){
+            System.out.println("String is valid");
+        }
+        else{
+            System.out.println("String is invlid!");
         }
     }
-    // for (int i = 0; i < I.length(); i++) {
-    // if (I.charAt(i) == 'a')
-    // a++;
-    // else if (I.charAt(i) == 'b')
-    // b++;
-    // }
-    // if (a == b)
-    // System.out.println("Valid String");
-    // else
-    // System.out.println("Invalid String!");
-    // }
+   
 }
+
 
 public class A_I_B {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        aib ai = new aib();
-        System.out.print("Enter char  = ");
-        ai.pushString(sc.nextLine());
-        ai.Compaire_A_B();
+        checkString ck = new checkString();
+        System.out.print("Enter String  = ");
+        String I = sc.nextLine();
+        int x = I.length();
+
+        for(int i = 0; i<x; i++){
+            ck.push(I.charAt(i));
+        }
+        ck.resultString(x);
     }
 }
+
+
+
+

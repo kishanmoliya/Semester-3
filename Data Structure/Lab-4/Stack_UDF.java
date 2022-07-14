@@ -28,7 +28,7 @@ class Stack_Operation{
 
     public int peep(int i){
         if(top-i+1 <= -1 ){
-            System.out.println("Invalid Index!");
+            System.out.println("Stack is Empty!");
             return 0;
         }
         else{
@@ -50,9 +50,10 @@ class Stack_Operation{
             System.out.println("Stack is Empty!");
         }
         else{
-            while(top != -1){
-                System.out.println(stack[top]);
-                top--;
+            int temp = top;
+            while(temp != -1){
+                System.out.println(stack[temp]);
+                temp--;
             }
         }
 
