@@ -64,12 +64,9 @@ public class Stack_UDF{
         Scanner sc = new Scanner(System.in);
         Stack_Operation st = new Stack_Operation();
 
-        System.out.println("1 -> Push the element...");
-        System.out.println("2 -> Pop The element...");
-        System.out.println("3 -> Peep The element...");
-        System.out.println("4 -> Change The element...");
-        System.out.println("5 -> Display The element...");
-        System.out.println("6 -> Exit...");
+        System.out.println("1 -> Push the element..." + "\n" + "2 -> Pop The element..." + "\n"
+        + "3 -> Peep The element..." + "\n" + "4 -> Change The element..." + "\n"
+        + "5 -> Display The element..." + "\n" + "6 -> Exit...");
 
 
         while(true){

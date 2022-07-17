@@ -52,8 +52,8 @@
             <span class="txt">Min</span>
             <span class="digit" id="sec">00</span>
             <span class="txt">Sec</span>
-            <span class="digit" id="miliSec">00</span>
-            <span class="txt">miliSec</span>
+            <span class="digit" id="count">00</span>
+            <span class="txt">count</span>
         </div>
 
         <div id="btn-container" class="m-5">
@@ -67,8 +67,7 @@
         var hr = 0;
         var min = 0;
         var sec = 0;
-        var miliSec = 0;
-
+        var count = 0;
         var timer = false;
 
         function start(){
@@ -81,24 +80,24 @@
         function reset(){
             timer = false;
             hr = 0;
-            sec = 0;
+            sec =0;
             min = 0;
-            miliSec = 0;
+            count = 0;
             document.getElementById("hr").innerHTML = "00";
             document.getElementById("min").innerHTML = "00";
             document.getElementById("sec").innerHTML = "00";
-            document.getElementById("miliSec").innerHTML = "00";
+            document.getElementById("count").innerHTML = "00";
         }
         function stopwatch(){
             if(timer == true){
-                miliSec = miliSec+1;
+                count = count +1;
 
-                if(miliSec == 100){
-                    sec = sec+1;
-                    miliSec = 0;
+                if(count == 100){
+                    sec = sec + 1;
+                    count = 0;
                 }
                 if(sec == 60){
-                    min = min+1;
+                    min = min + 1;
                     sec = 0;
                 }
                 if(min == 60){
@@ -108,9 +107,9 @@
                 }
 
                 var hrString = hr;
-                var minStrint = min;
-                var sceString = sec;
-                var miliSecString = miliSec;
+                var minString = min;
+                var secString = sec;
+                var countString = count;
 
                 if(hr < 10){
                     hrString = "0" + hrString;
@@ -121,19 +120,31 @@
                 if(sec < 10){
                     secString = "0" + secString;
                 }
-                if(miliSec < 10){
-                    miliSecString = "0" + miliSecString;
+                if(count < 10){
+                    countString = "0" + countString;
                 }
 
-                document.getElementById("hr").innerHTML = hrString;
-                document.getElementById("min").innerHTML = minString;
+                document.getElementById("count").innerHTML = countString;
                 document.getElementById("sec").innerHTML = secString;
-                document.getElementById("miliSec").innerHTML = miliSecString;
-                
-                setTimeout("stopwatch()", 10);
+                document.getElementById("min").innerHTML = minString;
+                document.getElementById("hr").innerHTML = hrString;
+    
+                setInterval(stopwatch,10)
+                setInterval = '';
             }
         }
     </script>
-</body>
-
+</body> 
 </html>
+
+    
+    
+
+
+
+
+
+
+
+
+    

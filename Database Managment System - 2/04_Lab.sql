@@ -1,5 +1,6 @@
 --• Stored Procedures
 --1. All tables Insert, Update & Delete
+
 -- PR_Person_Insert 108,'Kishan', 'Moliya',150000, '2003-06-30', 3, 14 
 Create procedure PR_Person_Insert
 	@WorkerID	int,
@@ -35,39 +36,190 @@ select * from Person
 	
 ---------------------------
 
--- PR_Department_Update 5,'Computer'
-Create procedure PR_Department_Update
-	@DepartmentID	int,
-	@Dpartname		varchar(50)
+-- PR_Depart_Insret 5,'Computer'
+Create Procedure PR_Depart_Insret
+	@DepartmentId   int,
+	@DepartmentName Varchar(50)
+As
+Begin
+	Insert Into Department(
+		DepartmentId,
+		DepartmentName
+	)
+	Values(
+	@DepartmentId,
+	@DepartmentName
+	)
+End
+
+Select * From Department
+---------------------------
+
+-- PR_Designation_Insert 16,'Assistant'
+Create Procedure PR_Designation_Insert
+	@DesignationID	  int,
+	@DesignatioinName Varchar(50)
+AS
+Begin
+
+	Insert Into Designation(
+		DesignationID,	 
+		DesignationName
+	)
+	Values(
+	@DesignationID,	 
+	@DesignatioinName
+	)
+End
+
+Select * From Designation
+
+==========================================
+
+-- PR_Person_Update 105, 'Kishan', 'Moliya', 185400, '2003-07-30', 2, 14
+Create Procedure PR_Person_Update
+	@workerID   int,
+	@Fname		varchar(100),
+	@Lname		varchar(100),
+	@salary		decimal(8, 2),
+	@joindate	datetime,
+	@dpartID	int,
+	@designID	int
 As 
 Begin
-		Insert into Department(
-			DepartmentID,
-			DepartmentName
-		)
+		Update Person
+		Set
+			FirstName		=	@Fname,	
+			LastName		=	@Lname,	
+			Salary			=	@salary,
+			JoiningDate		=	@joindate,
+			DepartmentID	=	@dpartID,
+			DesignationID	=	@designID			
+								
+		Where
+			WorkerID	=	@workerID
+End
 
-		Values(
-			@DepartmentID,
-			@Dpartname
-		)
-	End
+Select * From Person
+
+------------------------------
+
+-- PR_Department_Update 4,'Me'
+Create procedure PR_Department_Update
+	@DepartmentID	int,
+	@DepartmentName		varchar(50)
+As 
+Begin
+		 Update Department
+		 Set
+				DepartmentName = @DepartmentName
+		Where
+			DepartmentId = @DepartmentID
+End
 
 select * from Department
 
-----------------------------
-	
--- PR_Designation_Delete 5,'Computer'
-Create Procedure PR_Designation_Insert
-	@DepartID,
-	@DepartmentName
-As 
+------------------------------
+
+-- PR_Designation_Update 13,'Laymen'
+Create Procedure PR_Designation_Update
+	@DesignationID	 int,	 
+	@DesignationName Varchar(50)
+As
 Begin
-		Delete from Department Where DepartmentID = @DepartmentIDDepartmentName=@DepartmentName
+	Update Designation
+	Set
+		DesignationName = @DesignationName
+	Where
+		DesignationID = @DesignationID
 End
 
+Select * From Designation
+
+=========================================
+
+-- PR_Person_Delete 108
+Create Procedure PR_Person_Delete
+	@WorkerID int
+As
+Begin
+	Delete From Person
+	Where WorkerID = @WorkerID
+End
+
+-----------------------------------------
+
+-- PR_Department_Delete 5
+Create Procedure PR_Department_Delete
+	@DepartmentID int
+As
+Begin
+	Delete From Department
+	Where DepartmentID = @DepartmentID
+End
+--------------------------------------------
+
+-- PR_Designation_Delete 16
+Create Procedure PR_Designation_Delete
+	@DesignationID int
+As
+Begin
+	Delete From Designation
+	Where DesignationID = @DesignationID
+End
+
+
 --2. All tables SelectAll (If foreign key is available than do write join and take columns on select list)
+
+-- PR_Person_SelectAllWith_FK
+Create Procedure PR_Person_SelectAllWith_FK
+As
+Begin
+	Select p.WorkerID, p.FirstName, p.LastName, p.JoiningDate, p.Salary,
+		   d.DepartmentID, d.DepartmentName, dd.DesignationID, dd.DesignationName
+	From person p
+	Inner Join Department d
+	On p.DepartmentID = d.DepartmentID
+	Right Outer Join Designation dd
+	On p.DesignationID = dd.DesignationID
+End
+
 --3. All tables SelectPK
+
+-- PR_Person_Select_PK 107
+Create Procedure PR_Person_Select_PK
+	@WorkerID int
+As
+Begin
+	Select * from Person
+	Where WorkerID = @WorkerID
+End
+----------------------------
+
+-- PR_Department_Select_PK 3
+Create Procedure PR_Department_Select_PK
+	@DepartmentID int
+As
+Begin
+	Select * from Department
+	Where DepartmentID = @DepartmentID
+End
+----------------------------
+
+-- PR_Designation_SelectByPK 14
+Create Procedure PR_Designation_SelectByPK
+@designationID	int
+as
+Begin
+	Select *
+	From Person
+	Where DesignationID = @designationID
+End
+
+
 --4. Create Procedure that takes Department Name & Designation Name as Input and Returns a 
+
+
 --table with Worker’s First Name, Salary, Joining Date & Department Name.
 --5. Create Procedure that takes FirstName as an input parameter and displays’ all the details of 
 --the worker with their department & designation name.
