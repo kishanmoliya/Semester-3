@@ -66,9 +66,9 @@
       let mobile = document.getElementById('mobile').value;
       let pincode = document.getElementById('pincode').value;
 
-      let check = /^[a-zA-Z0-9]{1}[a-zA-Z0-9]+[_.]?[a-zA-Z0-9]+$/;
+      let checkname = /^[a-zA-Z0-9]{1}[a-zA-Z0-9]+[_.]?[a-zA-Z0-9]+$/;
 
-      let regx = new RegExp(check);
+      let regx = new RegExp(checkname);
 
       if (regx.test(name)) {
         document.getElementById('ans').innerHTML = "Valid";
@@ -79,6 +79,7 @@
         ans.style.color = "Red"
       }
     }
+    
   </script>
 
 </body>
