@@ -1,47 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snake Game</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
     <style>
-        #fix{
-            position: fixed;
-        }
         img{
-            width:60px;
-            margin-top: 300px;
-            margin-left: 700px;
-            margin-right: 700px;
+            width: 70px;
+        }
+        #Gamearea{
+            position:absolute;
+            top: 100px;
+            background-color: yellow;
+        }
+        #scoreCount,#lifeCount{
+            position: relative;
+            top: 0px;
+            left: 0px;
         }
     </style>
 </head>
-<body>
-    <div class="fix">
-    <button id="left" onclick="goLeft">left</button>
-    <button id="right" onclick="goRight">Right</button>
-    <button id="top" onclick="goTop">Right</button>
-    <button id="button" onclick="goButtom">Right</button>
-    </div>
-    
-    <img src="snake.jpg" id="myimg">
-    <script>
-        lSide = 700;
-        function goLeft(){
-            
-            document.getElementById('left').src = left.marginLeft-- + "px";
-        }
-        function goRight(){
 
-        }
-        function goTop(){
-            
-        }
-        function goButtom(){
-            
-        }
+<body class="bg-">
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+
+    <div>
+        <h1 id="scoreCount">hfbdf</h1>
+    </div>
+    <div>
+        <h1 id="lifeCount">jfbhd</h1>
+    </div>
+    <div class="border border-dark border-5" id="Gamearea">
+        <img src="snake.jpg" id="myimg">
+    </div>
+
+
+    <script>
+        let scoreCount = 0;
+        let lifeCount = 3;
+
+        document.getElementById('scoreCount').style
     </script>
+
 </body>
+
 </html>
