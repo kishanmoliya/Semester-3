@@ -36,7 +36,7 @@
 
     <div class="mb-3 col-4">
       <label for="password">Password : </label>
-      <input type="password" class="form-control" placeholder="Enter password" id="password">
+      <input type="password" class="form-control" aria-describedby="emailHelp" placeholder="Enter password" id="password">
       <div class="form-text">We'll never share your password with anyone else.</div>
     </div>
 
@@ -67,10 +67,18 @@
       let pincode = document.getElementById('pincode').value;
 
       let checkname = /^[a-zA-Z0-9]{1}[a-zA-Z0-9]+[_.]?[a-zA-Z0-9]+$/;
+      let checkemail = /^[a-z]{1}[a-z0-9]+[-_.]?[a-z0-9]+@(gmail|yahoo)\.(com|org|org)$/;
+      let checkpassword = /^(?=.*[0-9])(?=.*[@#$%^&*])[a-zA-Z0-9@#$*%*^]{8,12}$/;
+      let checkmobileno = /^[6-9]{1}[0-9]{9}$/;
+      let checkpincode = /^[3]{1}[0-9]{5}$/;
 
       let regx = new RegExp(checkname);
+      let regx2 = new RegExp(checkemail);
+      let regx3 = new RegExp(checkpassword);
+      let regx4 = new RegExp(checkmobileno);
+      let regx5 = new RegExp(checkpincode);
 
-      if (regx.test(name)) {
+      if (regx.test(name) && regx2.test(email) && regx3.test(password) && regx4.test(mobile) && regx5.test(pincode)){
         document.getElementById('ans').innerHTML = "Valid";
         ans.style.color = "Green"
       }
@@ -86,13 +94,48 @@
 
 </html>
 
-//  let uChack = /^[a-zA-Z0-9]{1}[a-zA-Z0-9]+[_.]?[a-zA-Z0-9]+$/;                           //   User name
-//  let uChack = /^\d{10}$/;                                                               //   Mobile Number
-//  let uChack = /^[6-9]{1}[0-9]{9}$/;                                                    //   Mobile Number
-//  let uChack = /^(\+91){1}[6-9]{1}[0-9]{9}$/;                                          //   Mobile Number
-//  let uChack = /^[3-4]{1}[0-9]{5}$/;                                                  //   Pincode
-//  let uChack = /^[a-z]{1}[a-z0-9]+[-_.]?[a-z0-9]+@(gmail|yahoo)\.(com|org|org)$/;    //   Email
-//  let uChack = /^(2101010){1}[0-9]{4}@(darshan.ac.in)$/                             //   Darshan Email
-//  let uChack =  /^(?=.*[0-9])(?=.*[@#$%^&*])[a-zA-Z0-9@#$*%*^]{8,12}$/;
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/">
+        <input type="text" id="Uname" placeholder="Enter youre name"><span id="ans"></span><br>
+        <input type="button" value="Submit" onclick="f1()">
+    </form>
+
+    <script>
+        function f1(){
+            let a = document.getElementById('Uname').value;
+
+           // let uChack = /^[a-zA-Z0-9]{1}[a-zA-Z0-9]+[_.]?[a-zA-Z0-9]+$/;                       //   User name
+           // let uChack = /^\d{10}$/;                                                               //   Mobile Number
+          //  let uChack = /^[6-9]{1}[0-9]{9}$/;                                                    //   Mobile Number
+          //  let uChack = /^(\+91){1}[6-9]{1}[0-9]{9}$/;                                          //   Mobile Number
+          //  let uChack = /^[3-4]{1}[0-9]{5}$/;                                                  //   Pincode
+          //  let uChack = /^[a-z]{1}[a-z0-9]+[-_.]?[a-z0-9]+@(gmail|yahoo)\.(com|org|org)$/;    //    Email
+          //  let uChack = /^(2101010){1}[0-9]{4}@(darshan.ac.in)$/                             //    Darshan Email
+              let uChack =  /^(?=.*[0-9])(?=.*[@#$%^&*])[a-zA-Z0-9@#$*%*^]{8,12}$/;
           
-  
+              let regx = new RegExp(uChack);
+
+            if(regx.test(a)){
+                document.getElementById('ans').innerHTML = "Valid";
+                ans.style.color = "Green"
+            }
+            else{
+                document.getElementById('ans').innerHTML = "Invalid";
+                ans.style.color = "Red"
+            }
+        }
+    </script>
+</body>
+
+</html> -->
