@@ -24,7 +24,8 @@ class enQueue {
         if (front == -1) {
             System.out.println("Queue is underFlow");
             return 0;
-        } else {
+        }
+        else {
             int display = queue[front];
             if (front == rear) {
                 front = 0;
@@ -48,7 +49,7 @@ class enQueue {
     }
 }
 
-public class queue {
+public class Simple_queue {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         enQueue insert = new enQueue();

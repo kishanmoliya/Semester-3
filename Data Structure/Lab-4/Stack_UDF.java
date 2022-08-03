@@ -2,11 +2,11 @@
 CHANGE & DISPLAY */
 import java.util.Scanner;
 class Stack_Operation{
-    int stack[] = new int[25];
+    int stack[] = new int[5];
     int top = -1;
 
     public void push(int x){
-        if(top >= 25){
+        if(top >= 5){
             System.out.println("Stack overFlow!");
         }
         else{

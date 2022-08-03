@@ -15,7 +15,7 @@ public class Convert_PostFix {
     }
 
     public char pop() {
-        if (top <= 0) {
+        if (top <= -1) {
             System.out.println("Stack is underFlow!");
             return 0;
         }
@@ -75,9 +75,9 @@ public class Convert_PostFix {
 
         System.out.println("rank is = "+rank);
 
-        // if ((top != -1) || (rank != 1)) {
-        // return ("IInvalid String");
-        // }
+        if ((top != -1) || (rank != 1)) {
+        return ("IInvalid String");
+        }
         return (polish);
     }
     public static void main(String[] args) {
