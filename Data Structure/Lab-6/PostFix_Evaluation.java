@@ -4,12 +4,12 @@ class evaluate {
     int top = -1;
     int c;
 
-    public void push(int ans) {
+    public void push(int n) {
         if (top >= 24) {
             System.out.println("stack overflow");
         } else {
             top++;
-            stack[top] = ans;
+            stack[top] = n;
         }
     }
 
