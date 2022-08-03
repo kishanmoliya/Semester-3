@@ -42,8 +42,9 @@ class evaluate {
                 break;
 
             case '^':
-                c = Math.pow(n1, n2);
+                c = (int) Math.pow(n1, n2);
                 break;
+
 
             default:
                 System.out.println("invalid!");
