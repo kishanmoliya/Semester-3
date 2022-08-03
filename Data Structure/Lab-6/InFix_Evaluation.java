@@ -52,7 +52,7 @@ class evaluate {
         }
         return c;
     }
-    public void convert_postfix(String infix){
+    public void convert_infix(String infix){
         for (int i = infix.length()-1; i >= 0 ; i--) {
             char temp = infix.charAt(i);
 
@@ -78,6 +78,6 @@ public class InFix_Evaluation {
         System.out.print("Enter InFix Expresion:");
         String infix = sc.nextLine();
         evaluate ios = new evaluate();
-        ios.convert_postfix(infix);
+        ios.convert_infix(infix);
     }
 }
