@@ -51,17 +51,17 @@ class evaluate {
         }
         return c;
     }
-    public void convert_postfix(String postfix){
-        for (int i = postfix.length()-1; i >= 0 ; i--) {
-            char temp = postfix.charAt(i);
+    public void convert_postfix(String infix){
+        for (int i = infix.length()-1; i >= 0 ; i--) {
+            char temp = infix.charAt(i);
 
             if (Character.isDigit(temp)) {
-                int a = Character.getNumericValue(postfix.charAt(i));
+                int a = Character.getNumericValue(infix.charAt(i));
                 push(a);
             } else {
                 int n2 = pop();
                 int n1 = pop();
-                char op = postfix.charAt(i);
+                char op = infix.charAt(i);
                 int ans = opration(op, n1, n2);
 
                 push(ans);
@@ -75,8 +75,8 @@ public class InFix_Evaluation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter InFix Expresion:");
-        String postfix = sc.nextLine();
-        evaluate pos = new evaluate();
-        pos.convert_postfix(postfix);
+        String infix = sc.nextLine();
+        evaluate ios = new evaluate();
+        ios.convert_postfix(infix);
     }
 }
