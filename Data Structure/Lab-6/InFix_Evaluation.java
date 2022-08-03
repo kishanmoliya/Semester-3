@@ -42,7 +42,7 @@ class evaluate {
                 break;
 
             case '^':
-                c = n1 ^ n2;
+                c = Math.pow(n1, n2);
                 break;
 
             default:
