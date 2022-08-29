@@ -74,29 +74,6 @@ public class LLOperation{
         }
         pred.next = null;
     }
-
-    //Delete Index.
-    // public void deleteIndex(Object x){
-    //     Node currNode = head;
-    //     Node pred = head;
-    //     while(!currNode.data.equals(x) || currNode.next != null){
-    //         pred = currNode;
-    //         currNode = currNode.next;
-    //     }        
-    //     if(!currNode.equals(x)){
-    //         System.out.println("Node not Found");
-    //         return;
-    //     }
-
-    //     if(x == head){
-    //         head = currNode.next;
-    //     }
-    //     else{
-    //         pred.next = currNode.next;
-    //     }
-    //     currNode.next = null; 
-    // }
-
     Object deleteSpecified(Object x){
         if(head == null){
             System.out.println("List is Empty");
