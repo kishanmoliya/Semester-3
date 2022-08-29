@@ -52,17 +52,17 @@ class evaluate {
         }
         return c;
     }
-    public void convert_postfix(String infix){
-        for (int i = infix.length()-1; i >= 0 ; i--) {
-            char temp = infix.charAt(i);
+    public void convert_Prefix(String Prefix){
+        for (int i = Prefix.length()-1; i >= 0 ; i--) {
+            char temp = Prefix.charAt(i);
 
             if (Character.isDigit(temp)) {
-                int a = Character.getNumericValue(infix.charAt(i));
+                int a = Character.getNumericValue(Prefix.charAt(i));
                 push(a);
             } else {
                 int n2 = pop();
                 int n1 = pop();
-                char op = infix.charAt(i);
+                char op = Prefix.charAt(i);
                 int ans = opration(op, n1, n2);
 
                 push(ans);
@@ -72,12 +72,12 @@ class evaluate {
     }
 }
 
-public class InFix_Evaluation {
+public class Prefix_Evaluation {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter InFix Expresion:");
-        String infix = sc.nextLine();
+        System.out.print("Enter Prefix Expresion:");
+        String Prefix = sc.nextLine();
         evaluate ios = new evaluate();
-        ios.convert_postfix(infix);
+        ios.convert_Prefix(Prefix);
     }
 }
