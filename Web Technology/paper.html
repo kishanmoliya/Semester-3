@@ -1,0 +1,29 @@
+<body>
+    <h1 id="ko" onmouseover="co()" onmouseout="co2()">karan</h1>
+    <div>press vovel and other key</div>
+    <h1 id="date"></h1>
+    <button id="btn1" onclick="time()">Date_Time</button>
+    <h1></h1>
+    <script>
+        let v = document.getElementById("ko");
+        const co=()=>{
+            v.style.color="red"
+        }
+        const co2=()=>{
+            v.style.color="black"
+        }
+
+        document.onkeydown= function (e){
+            if(e.key=="a"||e.key=="e"||e.key=="i"||e.key=="o"||e.key=="u"){
+                alert("vovel key")
+            }
+            
+        }
+
+        let dat = document.getElementById("date");
+        const time=()=>{
+            const d = new Date();
+            dat.innerHTML=d;
+        }
+        </script>
+</body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- When mouse hower then text color is green and mouse out color convert in red. -->
+    <h1 id="changColor" onmouseover="c1()" onmouseout="c2()">(i) Mouse hower and see the magic.</h1>
+
+    <!-- When press vowel then the massage display on pop up box. -->
+    <h1>(ii) Press vowel and get pop up box.</h1>
+
+    <!-- Click button display date and time. -->
+    <h1 id="showDate">(iii) Date : <button onclick="currentDate()">Show Date</button></h1>
+</body>
+<script>
+    const toggle = document.getElementById('changColor');
+    const c1 = () =>{
+        toggle.style.color = "green"
+    }
+    const c2 = () =>{
+        toggle.style.color = "red"
+    }
+
+    document.onkeypress = function (vowel){
+        if(vowel.key == 'a' || vowel.key == 'e' || vowel.key == 'i' || vowel.key == 'o' || vowel.key == 'u'){
+            alert('You entered : ' + vowel.key)
+        }
+    }
+
+    const date = document.getElementById('showDate');
+    const currentDate = () => {
+        const currentDate = new Date();
+        showDate.innerHTML = currentDate;
+    }
+</script>
+</html>
+
+
