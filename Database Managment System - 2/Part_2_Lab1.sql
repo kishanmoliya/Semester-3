@@ -18,7 +18,7 @@ Create Table PersonLog(
 =========================================================
 
 --1. Create INSERT, UPDATE & DELETE Stored Procedures for Person table.
--- PR_Person_Insert 1,'Kishan',20001,'2015-01-15','Rajkot',20,'2003-09-09'
+-- PR_Person_Insert 1,'Karan',25555,'2014-01-15','Rajkot',19,'2003-06-30'
 Create Procedure PR_Person_Insert
 	@PersonID			int,
 	@PersonName			Varchar(50),
@@ -81,6 +81,7 @@ End
 	
 
 --2. Create a trigger that fires on INSERT, UPDATE and DELETE operation on the Person table. For that,
+--create a new table PersonLog to log (enter) all operations performed on the Person table.
 Create trigger TR_Person_Insert
 On Person
 For Insert
@@ -91,7 +92,7 @@ Begin
 			@PersonName	= inserted.PersonName
 	From Inserted
 
-	Inserted into PersonLog Values(@PersonId, @PersonName, 'Insert', getDate())
+	Insert into PersonLog Values(@PersonId, @PersonName, 'Insert', getDate())
 End
 
 ------------------------------------------------
@@ -105,10 +106,10 @@ Begin
 			@PersonName	= inserted.PersonName
 	From Inserted
 
-	Inserted into PersonLog Values(@PersonId, @PersonName, 'Update', getDate())
+	Insert into PersonLog Values(@PersonId, @PersonName, 'Update', getDate())
 End
 ------------------------------------------------
-Create trigger TR_Person_Insert
+Create trigger TR_Person_Delete
 On Person
 For	Delete
 As
@@ -118,20 +119,83 @@ Begin
 			@PersonName	= deleted.PersonName
 	From Deleted
 
-	Inserted into PersonLog Values(@PersonId, @PersonName, 'Insert', getDate())
+	Insert into PersonLog Values(@PersonId, @PersonName, 'delete', getDate())
 End
 
 
---create a new table PersonLog to log (enter) all operations performed on the Person table.
 --3. Create an INSTEAD OF trigger that fires on INSERT, UPDATE and DELETE operation on the Person
 --table. For that, log all operation performed on the Person table into PersonLog.
+
+Create trigger TR_Person_InsertInstead
+On Person
+Instead of Insert
+As
+Begin
+	Declare	@PersonId int, @PersonName Varchar(50)
+	Select	@PersonId = inserted.PersonId,
+			@PersonName	= inserted.PersonName
+	From Inserted
+
+	Insert into PersonLog Values(@PersonId, @PersonName, 'Insert', getDate())
+End
+
+------------------------------------------------
+Create trigger TR_Person_UpdateInstead
+On Person
+Instead of Update
+As
+Begin
+	Declare	@PersonId int, @PersonName Varchar(50)
+	Select	@PersonId = inserted.PersonId,
+			@PersonName	= inserted.PersonName
+	From Inserted
+
+	Insert into PersonLog Values(@PersonId, @PersonName, 'Update', getDate())
+End
+------------------------------------------------
+Create trigger TR_Person_DeleteInstead
+On Person
+Instead of Delete
+As
+Begin
+	Declare	@PersonId int, @PersonName Varchar(50)
+	Select	@PersonId = deleted.PersonId,
+			@PersonName	= deleted.PersonName
+	From Deleted
+
+	Insert into PersonLog Values(@PersonId, @PersonName, 'delete', getDate())
+End
+
+
 --4. Create DELETE trigger on PersonLog table, when we delete any record of PersonLog table it prints 
 --‘Record deleted successfully from PersonLog’.
 Create	Trigger TR_PersonLog_Delete
 On PersonLog
+For Delete
 As
 Begin
 	Print 'record Delete SuccessFully.'
 End
+
+
 --5. Create INSERT trigger on person table, which calculates the age and update that age in Person 
---table.
+--table.
+Create Trigger TR_Person_CulculateDate
+On Person
+For Insert
+As
+Begin
+	Declare @PersonId int, @BirthDate Datetime
+	Select @PersonId = inserted.PersonID,
+			@BirthDate = inserted.birthDate
+	From Inserted
+
+	Update Person 
+	Set Age = DATEDIFF(year, '2003-06-30', GETDATE())
+
+	Where PersonId = @PersonId
+End
+
+
+Select * from Person
+Select * from PersonLog
