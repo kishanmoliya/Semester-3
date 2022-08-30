@@ -31,8 +31,8 @@ public class Circular_Queue {
 
     public int cQDelete() {
         if (front == rear) {
-            int extra = front;
-            return cQueue[extra];
+            int data = front;
+            return cQueue[data];
         } else if (front < cQueue.length - 1) {
             front++;
             return cQueue[front - 1];
