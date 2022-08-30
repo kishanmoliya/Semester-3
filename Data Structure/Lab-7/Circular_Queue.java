@@ -30,6 +30,9 @@ public class Circular_Queue {
     }
 
     public int cQDelete() {
+        if(front == -1){
+            System.out.println("Underflow!");
+        }
         if (front == rear) {
             int extra = front;
             return cQueue[extra];
@@ -43,6 +46,10 @@ public class Circular_Queue {
     }
 
     public void displayQueue() {
+        if(front == rear){
+
+            System.out.print(cQueue[0]);
+        }
         if (rear > front) {
             for (int i = front; i < rear + 1; i++) {
                 System.out.print(cQueue[i] + " ");
@@ -65,18 +72,19 @@ public class Circular_Queue {
         System.out.println("1 -> cQInsert \n 2 -> cQDelete \n 3 -> Display \n 4 -> Exit");
         while (true) {
             System.out.print("Enter Operation = ");
-            switch (sc.nextInt()) {
-                case 1:
+            switch (sc.next()) {
+                case "1":
                     System.out.print("Eneter the Element You want to Insert = ");
                     cq.cQInsert(sc.nextInt());
                     break;
-                case 2:
-                    System.out.println("Youre NeQueue Element is = " + cq.cQDelete());
+                case "2":
+                    System.out.println("Your EnQueue Element is = " + cq.cQDelete());
                     break;
-                case 3:
+                case "3":
                     cq.displayQueue();
+                    System.out.println();
                     break;
-                case 4:
+                case "4":
                     System.exit(0);
                     break;
                 default:

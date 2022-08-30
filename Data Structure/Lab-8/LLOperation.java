@@ -87,8 +87,8 @@ public class LLOperation{
             return;
         }
 
-        Node pred = head;
         Node currNode = head.next;
+        Node pred = head;
         while(currNode.next != null){
             currNode = currNode.next;
             pred = pred.next;
@@ -96,15 +96,16 @@ public class LLOperation{
         pred.next = null;
     }
 
+    //Delete Specified Data.
     Object deleteSpecified(Object x){
         if(head == null){
             System.out.println("List is Empty");
             return 0;
         }
         if(head.data.equals(x)){
-            Object free = head.data;
+            Object delete = head.data;
             head = head.next;
-            return free;
+            return delete;
         }
         Node currNode = head;
         Node pred = currNode;
@@ -120,9 +121,25 @@ public class LLOperation{
             pred.next = null;
             return currNode.data;
         }
-        pred.data = currNode.next;
+        pred.next = currNode.next;
         return currNode.data;
     }
+
+    //Delete specified Position.
+    // Object deleteSpecified(Object position){
+    //     if(position == 1){
+    //         head = head.next;
+    //     }else{
+    //         Node pred = head;
+    //         int count = 1;
+    //         while(count < position -1){
+    //             pred = pred.next;
+    //             count++;
+    //         }
+    //         Node currNode = pred.next;
+    //         pred.next = currNode.next;
+    //     }
+    // }
 
     //Size
     public int getSize(){
@@ -151,8 +168,7 @@ public class LLOperation{
         System.out.println("1 -> AddFirst \n 2 -> AddLast \n 3 -> Insert At Spacific Position \n 4 -> Delete First \n 5 -> Delete Last \n 6 -> Delete at Specific Position\n 7 -> DisplayNode \n 8 -> size of list \n 9 -> Exit");
         while(true){
             System.out.print("Enter Operation = ");
-            String k = sc.next();
-            switch(k){
+            switch(sc.next()){
                 case "1" :
                     System.out.print("Enter Element You want to AddFirst = ");
                     list.addFirst(sc.next());
@@ -170,16 +186,16 @@ public class LLOperation{
                     break;
                 case "4" :
                     list.deleteFirst();
-                    System.out.println("Youre First Node delete Successfully");
+                    System.out.println("Your First Node delete Successfully");
                     break;
                 case "5" :
                     list.deleteLast();
-                    System.out.println("Youre Last Node delete Successfuly");
+                    System.out.println("Your Last Node delete Successfuly");
                     break;
                 case "6" :
                     System.out.print("Enter the value you went delete = ");
                     list.deleteSpecified(sc.next());
-                    System.out.println("Youre element delete successfully");
+                    System.out.println("Your element delete successfully");
                     break;
                 case "7" :
                     list.displayList();
