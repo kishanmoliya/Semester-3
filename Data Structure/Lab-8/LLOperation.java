@@ -40,8 +40,29 @@ public class LLOperation{
         while(currentNode.next != null){
             currentNode = currentNode.next;
         }
-
         currentNode.next = newNode;
+    }
+
+    //Insert At Specific
+    public void insertSpecific(Object data, int position){
+        if(position < 0){
+            System.out.println("Invalid Position!");
+        }
+        Node newNode = new Node(data);
+        if(position == 0){
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+        Node currNode = head;
+        for(int i = 0; i < position -1; i++){
+            currNode = currNode.next;
+            if(currNode == null){
+                System.out.println("Position Not Found");
+            }
+        }
+        newNode.next = currNode.next;
+        currNode.next = newNode;
     }
 
     //Delete First.
@@ -74,28 +95,6 @@ public class LLOperation{
         }
         pred.next = null;
     }
-
-    //Delete Index.
-    // public void deleteIndex(Object x){
-    //     Node currNode = head;
-    //     Node pred = head;
-    //     while(!currNode.data.equals(x) || currNode.next != null){
-    //         pred = currNode;
-    //         currNode = currNode.next;
-    //     }        
-    //     if(!currNode.equals(x)){
-    //         System.out.println("Node not Found");
-    //         return;
-    //     }
-
-    //     if(x == head){
-    //         head = currNode.next;
-    //     }
-    //     else{
-    //         pred.next = currNode.next;
-    //     }
-    //     currNode.next = null; 
-    // }
 
     Object deleteSpecified(Object x){
         if(head == null){
@@ -149,38 +148,46 @@ public class LLOperation{
         LLOperation list = new LLOperation();
 
 
-        System.out.println("1 -> AddFirst \n 2 -> AddLast \n 3 -> Delete First \n 4 -> Delete Last \n 5 -> Delete at Specific Position\n 6 -> DisplayNode \n 7 -> size of list \n 8-> Exit");
+        System.out.println("1 -> AddFirst \n 2 -> AddLast \n 3 -> Insert At Spacific Position \n 4 -> Delete First \n 5 -> Delete Last \n 6 -> Delete at Specific Position\n 7 -> DisplayNode \n 8 -> size of list \n 9 -> Exit");
         while(true){
             System.out.print("Enter Operation = ");
-            switch(sc.nextInt()){
-                case 1 :
+            String k = sc.next();
+            switch(k){
+                case "1" :
                     System.out.print("Enter Element You want to AddFirst = ");
-                    list.addFirst(sc.nextInt());
+                    list.addFirst(sc.next());
                     break;
-                case 2 :
-                    System.out.println("Enter Element you want to AddLast");
-                    list.addLast(sc.nextInt());
+                case "2" :
+                    System.out.print("Enter Element you want to AddLast = ");
+                    list.addLast(sc.next());
                     break;
-                case 3 :
+                case "3" :
+                    System.out.print("Enter the Position of New Node = ");
+                    int y = sc.nextInt();
+                    System.out.print("Enter the value of New Node Which you want to Insert = ");
+                    Object x = sc.next();
+                    list.insertSpecific(x,y);
+                    break;
+                case "4" :
                     list.deleteFirst();
                     System.out.println("Youre First Node delete Successfully");
                     break;
-                case 4 :
+                case "5" :
                     list.deleteLast();
                     System.out.println("Youre Last Node delete Successfuly");
                     break;
-                case 5 :
+                case "6" :
                     System.out.print("Enter the value you went delete = ");
-                    list.deleteSpecified(sc.nextInt());
+                    list.deleteSpecified(sc.next());
                     System.out.println("Youre element delete successfully");
                     break;
-                case 6 :
+                case "7" :
                     list.displayList();
                     break;
-                case 7 :
+                case "8" :
                     System.out.println("Size of list is = " + list.getSize());
                     break;
-                case 8 :
+                case "9" :
                     System.exit(0);
                     break;
                 default :

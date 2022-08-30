@@ -1,30 +1,30 @@
 import java.util.Scanner;
 
 public class Circular_Queue {
-    private int cQueueArray[];
-    private int front = -1;
-    private int rear = -1;
+    public int cQueue[];
+    public int front = -1;
+    public int rear = -1;
 
     public Circular_Queue(int n) {
-        cQueueArray = new int[n];
+        cQueue = new int[n];
     }
 
     public void cQInsert(int element) {
-        if (rear >= cQueueArray.length - 1 && front == 0) {
+        if (rear >= cQueue.length - 1 && front == 0) {
             System.out.println("CQueue Overflow");
         } 
         else {
             if (front - 1 == rear) {
                 System.out.println("CQueue Overflow");
-            } else if (rear < cQueueArray.length - 1) {
+            } else if (rear < cQueue.length - 1) {
                 rear++;
-                cQueueArray[rear] = element;
+                cQueue[rear] = element;
                 if (front == -1) {
                     front++;
                 }
             } else {
                 rear = 0;
-                cQueueArray[rear] = element;
+                cQueue[rear] = element;
             }
         }
     }
@@ -32,30 +32,28 @@ public class Circular_Queue {
     public int cQDelete() {
         if (front == rear) {
             int extra = front;
-            front = -1;
-            rear = -1;
-            return cQueueArray[extra];
-        } else if (front < cQueueArray.length - 1) {
+            return cQueue[extra];
+        } else if (front < cQueue.length - 1) {
             front++;
-            return cQueueArray[front - 1];
+            return cQueue[front - 1];
         } else {
             front = 0;
-            return cQueueArray[cQueueArray.length - 1];
+            return cQueue[cQueue.length - 1];
         }
     }
 
     public void displayQueue() {
         if (rear > front) {
             for (int i = front; i < rear + 1; i++) {
-                System.out.print(cQueueArray[i] + " ");
+                System.out.print(cQueue[i] + " ");
             }
         }
         if (rear < front) {
-            for (int i = front; i < cQueueArray.length; i++) {
-                System.out.print(cQueueArray[i] + " ");
+            for (int i = front; i < cQueue.length; i++) {
+                System.out.print(cQueue[i] + " ");
             }
             for (int i = 0; i <= rear; i++) {
-                System.out.print(cQueueArray[i] + " ");
+                System.out.print(cQueue[i] + " ");
             }
         }
     }
