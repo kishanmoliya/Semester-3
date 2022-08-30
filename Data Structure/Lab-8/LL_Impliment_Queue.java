@@ -10,7 +10,7 @@ public class LL_Impliment_Queue {
             switch(sc.nextInt()){
                 case 1 :
                     System.out.print("Enter Element you want Insert = ");
-                    queue.addFirst(sc.nextInt());
+                    queue.addLast(sc.nextInt());
                     break;
                 case 2 :
                     queue.deleteFirst();
