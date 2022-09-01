@@ -12,8 +12,7 @@ public class Circular_Queue {
     public void cQInsert(int element) {
         if (rear >= cQueue.length - 1 && front == 0) {
             System.out.println("CQueue Overflow");
-        } 
-        else {
+        } else {
             if (front - 1 == rear) {
                 System.out.println("CQueue Overflow");
             } else if (rear < cQueue.length - 1) {
@@ -29,39 +28,34 @@ public class Circular_Queue {
         }
     }
 
-    public int cQDelete() {
-        if(front == -1){
-            System.out.println("Underflow!");
-        }
-        if (front == rear) {
-            int data = front;
-            return cQueue[data];
-        } else if (front < cQueue.length - 1) {
-            front++;
-            return cQueue[front - 1];
+    public int dequeue() {
+        if (front <= -1) {
+            System.out.println("Queue Underflow");
+            return -1;
         } else {
-            front = 0;
-            return cQueue[cQueue.length - 1];
+            int temp = cQueue[front];
+            if (front == rear) {
+                front = rear = -1;
+            } else {
+                front = (front + 1) % (cQueue.length);
+            }
+            return temp;
         }
     }
 
     public void displayQueue() {
-        if(front == rear){
-
-            System.out.print(cQueue[0]);
-        }
-        if (rear > front) {
-            for (int i = front; i < rear + 1; i++) {
-                System.out.print(cQueue[i] + " ");
+        if (front <= -1) {
+            System.out.println("Queue Underflow");
+        } else {
+            int i = front;
+            System.out.println("front : " + front);
+            System.out.println("rear : " + rear);
+            System.out.print("Items : ");
+            while (i != rear) {
+                System.out.print("[" + cQueue[i] + "] ");
+                i = (i + 1) % (cQueue.length);
             }
-        }
-        if (rear < front) {
-            for (int i = front; i < cQueue.length; i++) {
-                System.out.print(cQueue[i] + " ");
-            }
-            for (int i = 0; i <= rear; i++) {
-                System.out.print(cQueue[i] + " ");
-            }
+            System.out.println("[" + cQueue[rear] + "] ");
         }
     }
 
@@ -78,7 +72,7 @@ public class Circular_Queue {
                     cq.cQInsert(sc.nextInt());
                     break;
                 case "2":
-                    System.out.println("Your EnQueue Element is = " + cq.cQDelete());
+                    System.out.println("Your EnQueue Element is = " + cq.dequeue());
                     break;
                 case "3":
                     cq.displayQueue();

@@ -157,7 +157,7 @@ public class LLOperation{
             System.out.print(currentNode.data + " -> ");
             currentNode = currentNode.next;
         }
-    //    System.out.println("Null");
+        System.out.println("Null");
 
     }
     public static void main(String[] args) {
@@ -199,6 +199,7 @@ public class LLOperation{
                     break;
                 case "7" :
                     list.displayList();
+                    System.out.println();
                     break;
                 case "8" :
                     System.out.println("Size of list is = " + list.getSize());
