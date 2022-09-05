@@ -180,7 +180,7 @@ End
 
 --5. Create INSERT trigger on person table, which calculates the age and update that age in Person 
 --table.
-Create Trigger TR_Person_CulculateDate
+Alter Trigger TR_Person_CulculateDate
 On Person
 For Insert
 As
@@ -191,11 +191,12 @@ Begin
 	From Inserted
 
 	Update Person 
-	Set Age = DATEDIFF(year, '2003-06-30', GETDATE())
+	Set Age = DATEDIFF(year, @BirthDate, GETDATE())
 
 	Where PersonId = @PersonId
 End
 
+Insert Into Person values(2,'Kishan',456789,'2015-06-06','Baroda',Null,'2003-06-06')
 
 Select * from Person
 Select * from PersonLog
