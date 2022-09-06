@@ -199,7 +199,7 @@ public class LLOperation{
                     break;
                 case "7" :
                     list.displayList();
-                    System.out.println();
+                    //System.out.println();
                     break;
                 case "8" :
                     System.out.println("Size of list is = " + list.getSize());
