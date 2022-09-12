@@ -1,5 +1,6 @@
 import java.util.Scanner;;
 public class Doubly_LinkedList{
+    int size = 0;
     class Node{
         Object data;
         Node LPTR = null;
@@ -17,6 +18,7 @@ public class Doubly_LinkedList{
     //Insert Front
     public void InsertFront(Object data){
         Node newNode = new Node(data);
+        size++;
         if(head == null){
             head = newNode;
             tail = newNode;
@@ -30,6 +32,7 @@ public class Doubly_LinkedList{
     //Insert End
     public void insertEnd(Object data){
         Node newNode = new Node(data);
+        size++;
         if(head == null){
             head = newNode;
             tail = newNode;
@@ -52,20 +55,30 @@ public class Doubly_LinkedList{
             System.out.println("List is Empty!");
             return;
         }
+        size--;
+
         if(position == 1){
             head = head.RPTR;
             return;
         }
+        else{
+            Node pred = head;
+            int count = 1;
+            while(count < position-1){
+                pred = pred.RPTR;                
+                count++;
+            }
+            System.out.println(pred.RPTR.data);
+            if(pred.RPTR == null){
+                System.out.println("pre");
+                pred.LPTR.RPTR = null;
+                return;
+            }
+            Node currNode = pred.RPTR;
+            pred.RPTR = currNode.RPTR;
+            currNode.RPTR.LPTR = pred;
+        }
     }
-    //     Node currNode = head;
-    //     while(currNode != null){
-            
-    //         tail = tail.LPTR;
-    //         tail.RPTR = null;
-    //         currNode  = null;
-    //         return;
-    //     }
-    // }
 
     //Display
     public void displayNode(){
@@ -78,7 +91,11 @@ public class Doubly_LinkedList{
             System.out.print(currNOde.data + " -> ");
             currNOde = currNOde.RPTR;
         }
+        System.out.println("Null");
+    }
 
+    public void size(){
+        System.out.println("Size = " + size);
     }
 
     public static void main(String[] args) {
@@ -91,8 +108,9 @@ public class Doubly_LinkedList{
         dList.insertEnd(20);
         dList.insertEnd(10);
 
-        dList.deleteSpecified();
-
+        
+        dList.deleteSpecified(5);
+        dList.size();
         dList.displayNode();
     }
 }

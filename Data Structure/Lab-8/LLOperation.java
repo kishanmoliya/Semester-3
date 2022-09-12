@@ -132,7 +132,7 @@ public class LLOperation{
     //     }else{
     //         Node pred = head;
     //         int count = 1;
-    //         while(count < position -1){
+    //         while(count < position-1){
     //             pred = pred.next;
     //             count++;
     //         }
