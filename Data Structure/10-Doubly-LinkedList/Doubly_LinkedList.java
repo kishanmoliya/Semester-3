@@ -71,7 +71,7 @@ public class Doubly_LinkedList{
             System.out.println(pred.RPTR.data);
             if(pred.RPTR == null){
                 System.out.println("pre");
-                pred.LPTR.RPTR = null;
+                pred.RPTR = null;
                 return;
             }
             Node currNode = pred.RPTR;
