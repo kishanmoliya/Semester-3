@@ -1,6 +1,5 @@
 import java.util.Scanner;;
 public class Doubly_LinkedList{
-    int size = 0;
     class Node{
         Object data;
         Node LPTR = null;
@@ -18,7 +17,6 @@ public class Doubly_LinkedList{
     //Insert Front
     public void InsertFront(Object data){
         Node newNode = new Node(data);
-        size++;
         if(head == null){
             head = newNode;
             tail = newNode;
@@ -32,7 +30,6 @@ public class Doubly_LinkedList{
     //Insert End
     public void insertEnd(Object data){
         Node newNode = new Node(data);
-        size++;
         if(head == null){
             head = newNode;
             tail = newNode;
@@ -55,7 +52,6 @@ public class Doubly_LinkedList{
             System.out.println("List is Empty!");
             return;
         }
-        size--;
 
         if(position == 1){
             head = head.RPTR;
@@ -68,9 +64,7 @@ public class Doubly_LinkedList{
                 pred = pred.RPTR;                
                 count++;
             }
-            System.out.println(pred.RPTR.data);
-            if(pred.RPTR == null){
-                System.out.println("pre");
+            if(pred.RPTR == tail){
                 pred.RPTR = null;
                 return;
             }
@@ -93,24 +87,38 @@ public class Doubly_LinkedList{
         }
         System.out.println("Null");
     }
-
-    public void size(){
-        System.out.println("Size = " + size);
-    }
-
     public static void main(String[] args) {
         Doubly_LinkedList dList = new Doubly_LinkedList();
         Scanner sc = new Scanner(System.in);
+        boolean flag = true;
 
-        dList.insertEnd(50);
-        dList.insertEnd(40);
-        dList.insertEnd(30);
-        dList.insertEnd(20);
-        dList.insertEnd(10);
+        System.out.println("1 -> Insert Front \n 2 -> Insert End \n 3 -> Delete \n 4 -> Display \n 5 -> Display");
 
-        
-        dList.deleteSpecified(5);
-        dList.size();
-        dList.displayNode();
+        while(flag){
+            System.out.print("Enter Operaion = ");
+            switch(sc.nextInt()){
+                case 1:
+                    System.out.print("Enter the Element you want to add first = ");
+                    dList.InsertFront(sc.nextInt());
+                    break;
+                case 2:
+                    System.out.print("Enter the Element you want add last = ");
+                    dList.insertEnd(sc.nextInt());
+                    break;
+                case 3:
+                    System.out.println("Enter Position for delete Node = ");
+                    dList.deleteSpecified(sc.nextInt());
+                    System.out.print("your element is delete successfully");
+                    break;
+                case 4: 
+                    dList.displayNode();
+                    break;
+                case 5:
+                    flag = false;
+                    break;
+                default :
+                    System.out.println("Enter the valid Operation!");
+            }
+        }
     }
 }

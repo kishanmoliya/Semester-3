@@ -4,7 +4,7 @@ const server = http.createServer((req,res)=>{
     res.statusCode = 200;
     res.setHeader('Content-Type' , 'text/html');
     res.write("hello <h1> world </h1> from du!");
-    res.end();
+    res.end();                                                //Also write -> res.end("hello <h1> world </h1> from du!")
 });
 
 server.listen(3000,()=>{
