@@ -49,14 +49,19 @@ public class Circular_LinkedList {
             return;
         }
         Node currNode = head;
-        Node pred = currNode;  
-        if(size+1 == position){
+        Node pred = currNode;
+        int count = 1;  
+        if(count < position-1){
             while(currNode.next != tail){
                 currNode = currNode.next;
                 currNode.next = tail;
                 tail.next = head;
+                count++;
             }
         }
+
+        currNode = head;
+        pred = currNode;  
         for(int i=0;i<size+1;i++){
             if(i == position){
                 pred = currNode;
