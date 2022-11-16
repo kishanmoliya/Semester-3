@@ -3,8 +3,17 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
-dotenv.config({path:'./config.env'});
+dotenv.config({ path: './config.env' });
+
 require('./db/connection')
+//const User = require('./model/userSchema')
+
+
+// post men send json to convert string...
+app.use(express.json());
+
+//Link the router... 
+app.use(require('./router/auth'));
 
 const PORT = process.env.PORT;
 
