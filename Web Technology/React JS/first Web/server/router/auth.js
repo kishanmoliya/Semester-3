@@ -64,7 +64,7 @@ router.post('/register', async (req, res) => {
 
 // Login Rout  
 router.post('/signin', async (req, res) => {
-    try {
+    try { 
         const { email, password } = req.body;
 
         if (!email || !password) {
