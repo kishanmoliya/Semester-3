@@ -7,17 +7,19 @@ import About from './component/About';
 import Contact from './component/Contact';
 import Login from './component/Login';
 import Signup from './component/Signup';
+import Error from './component/Error';
 
 const App = () => {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route exact path='/' element={<Home />}></Route>
-        <Route path='/about' element={<About />}></Route>
-        <Route path='/contact' element={<Contact />}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/signup' element={<Signup />}></Route>
+          <Route exact path='/' element={<Home />}></Route>
+          <Route path='/about' element={<About />}></Route>
+          <Route path='/contact' element={<Contact />}></Route>
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
+          {/* <Route><Error /></Route> */}
       </Routes>
     </>
   )
