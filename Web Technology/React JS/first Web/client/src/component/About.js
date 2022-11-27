@@ -1,10 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const About = () => {
+
+  const navigate = useNavigate();
+
+  const callAboutPage = async () => {
+    try {
+      const res = await fetch('/about', {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      if (!res.status === 200) {
+        const error = new Error(res.error)
+        throw error;
+      }
+
+    } catch (err) {
+      console.log(err);
+      navigate('/login');
+    }
+  }
+
+  useEffect(() => {
+    callAboutPage();
+  }, []);
+
   return (
     <>
       <div className='container emp-profile'>
-        <form method="">
+        <form method="GET">
           <div className='row'>
 
             <div className='col-md-4'>
@@ -108,52 +141,52 @@ const About = () => {
 
                 <div className='tab-pane fade' id="profile" role="moliyapanel" aria-labelledby="profile-tab">
 
-<div className='row'>
-  <div className='col-md-6'>
-    <label>Experience</label>
-  </div>
-  <div className='col-md-6'>
-    <p>Expert</p>
-  </div>
-</div>
+                  <div className='row'>
+                    <div className='col-md-6'>
+                      <label>Experience</label>
+                    </div>
+                    <div className='col-md-6'>
+                      <p>Expert</p>
+                    </div>
+                  </div>
 
-<div className='row mt-3'>
-  <div className='col-md-6'>
-    <label>Name</label>
-  </div>
-  <div className='col-md-6'>
-    <p>kishan moliya</p>
-  </div>
-</div>
+                  <div className='row mt-3'>
+                    <div className='col-md-6'>
+                      <label>Name</label>
+                    </div>
+                    <div className='col-md-6'>
+                      <p>kishan moliya</p>
+                    </div>
+                  </div>
 
-<div className='row mt-3'>
-  <div className='col-md-6'>
-    <label>Email</label>
-  </div>
-  <div className='col-md-6'>
-    <p>kishanmoliya232@gmail.com</p>
-  </div>
-</div>
+                  <div className='row mt-3'>
+                    <div className='col-md-6'>
+                      <label>Email</label>
+                    </div>
+                    <div className='col-md-6'>
+                      <p>kishanmoliya232@gmail.com</p>
+                    </div>
+                  </div>
 
-<div className='row mt-3'>
-  <div className='col-md-6'>
-    <label>Phone</label>
-  </div>
-  <div className='col-md-6'>
-    <p>7894561232</p>
-  </div>
-</div>
+                  <div className='row mt-3'>
+                    <div className='col-md-6'>
+                      <label>Phone</label>
+                    </div>
+                    <div className='col-md-6'>
+                      <p>7894561232</p>
+                    </div>
+                  </div>
 
-<div className='row mt-3'>
-  <div className='col-md-6'>
-    <label>Profation</label>
-  </div>
-  <div className='col-md-6'>
-    <p>App Developar</p>
-  </div>
-</div>
+                  <div className='row mt-3'>
+                    <div className='col-md-6'>
+                      <label>Profation</label>
+                    </div>
+                    <div className='col-md-6'>
+                      <p>App Developar</p>
+                    </div>
+                  </div>
 
-</div>
+                </div>
 
 
 

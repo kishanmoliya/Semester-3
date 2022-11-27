@@ -1,0 +1,13 @@
+.row{
+    background-color: lightgoldenrodyellow;
+}
+.card{
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.card-body{
+    background-color: lightgoldenrodyellow;
+}
+.card:hover{
+    transform: scale(1.05);
+}

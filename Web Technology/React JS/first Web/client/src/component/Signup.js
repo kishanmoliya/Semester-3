@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     name: "", email: "", phone: "", work: "", password: "", cpassword: ""
   });
@@ -31,14 +32,13 @@ const Signup = () => {
     });
 
     const data = await res.json();
-    if(data.status === 422 || !data){
+    
+    if(res.status === 422 || !data){
       window.alert("Some Thing went to wrong!")
-      console.log("Some Thing went to wrong!")
     }else{
       window.alert("Registration Successfull")
-      console.log("Registration Successfull")
 
-      // history.pushState("/login")
+      navigate("/login");
     }
   }
 
@@ -105,7 +105,6 @@ const Signup = () => {
               </figure>
               <NavLink to="../login" className="signup-image-link">I am already register</NavLink>
             </div>
-
 
           </div>
         </div>

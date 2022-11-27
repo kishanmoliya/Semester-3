@@ -1,0 +1,7 @@
+table, th, tr{
+    border: 2px solid black;
+}
+
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}

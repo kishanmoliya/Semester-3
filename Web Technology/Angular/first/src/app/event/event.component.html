@@ -1,0 +1,10 @@
+<p>event works!</p>
+<h1>{{name}}</h1>
+
+<button (click)="getData('name')">Function call</button>
+
+<br /><br />
+<input type="text" #box (keyup)="event(box.value)" placeholder="Key Up" />
+
+<br /><br />
+<input type="text" #box1 (keydown)="event(box1.value)" placeholder="Key Down" />

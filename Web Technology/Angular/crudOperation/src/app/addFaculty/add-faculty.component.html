@@ -1,0 +1,33 @@
+<form class="container mt-3" action="/" [formGroup]="myForm" (ngSubmit)="insert()">
+    <div class="mb-3 col-4">
+        <label>Enter ID : </label>
+        <input type="text" class="form-control" formControlName="FacultyID" placeholder="Enter Id" />
+    </div>
+ 
+    <div class="mb-3 col-4">
+      <label>Full Name : </label>
+      <input type="text" class="form-control" formControlName="FacultyName" placeholder="Enter name" />
+    </div>
+
+    <div class="mb-3 col-4">
+      <label>EducationQualification : </label>
+      <input type="text" class="form-control" formControlName="FacultyEducationQualification" placeholder="Enter EducationQualification" />
+    </div>
+
+    <div class="mb-3 col-4">
+        <label>Designation : </label>
+        <input type="text" class="form-control" formControlName="FacultyDesignation" placeholder="Enter Designation" />
+    </div>
+
+    <div class="mb-3 col-4">
+      <label>Experience : </label>
+      <input type="text" class="form-control" formControlName="FacultyExperience" placeholder="Enter Experience" />
+    </div>
+
+    <div class="mb-3 col-4">
+      <label>FacultyImage : </label>
+      <input type="img" class="form-control" formControlName="FacultyImage" placeholder="Enter URL" />
+    </div> 
+ 
+    <input class="it-color" type="submit" [value]="btnName" [disabled]="!myForm.valid">
+  </form>

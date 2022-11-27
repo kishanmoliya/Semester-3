@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');    //for hashing tha password.
 const jwt = require('jsonwebtoken');
+const authentication = require('../middleware/authentication')
 
 require('../db/connection');
-const User = require('../model/userSchema')
+const User = require('../model/userSchema');
 
 router.get('/', (req, res) => {
     res.send(`It's router home`);
@@ -38,7 +39,7 @@ router.post('/register', async (req, res) => {
     const { name, email, phone, work, password, cpassword } = req.body;
 
     if (!name || !email || !phone || !work || !password || !cpassword) {
-        return res.status(422).json({ error: "Please enter the fild Properly" });
+        res.status(422).json({ error: "Please enter the fild Properly" });
     }
 
     try {
@@ -96,5 +97,12 @@ router.post('/signin', async (req, res) => {
         console.log(err);
     }
 });
+
+
+//About US
+router.get('/about', authentication, (req, res) => {
+    res.send(req.rootUser);
+});
+
 
 module.exports = router;

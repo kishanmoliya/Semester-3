@@ -1,0 +1,42 @@
+<p>crud Operation works!</p>
+
+<form [formGroup]="myForm" (ngSubmit)="insert()">
+    <table>
+        <tr>
+            <td>Enter the Name</td>
+            <td>:</td>
+            <td><input type="text" formControlName="name" /><br/>
+            <span style="color:red" *ngIf="myForm.controls.name.touched && myForm.controls.name.invalid">Please Enter the Name</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter the Age</td> 
+            <td>:</td>
+            <td><input type="text" formControlName="age" /></td>
+        </tr>
+        <tr>
+            <td colspan="3" *ngIf="editID == -1">
+                <input type="submit" value="Add Faculty" [disabled]="!myForm.valid" />
+            </td>
+            <td colspan="3" *ngIf="editID != -1">
+                <input type="submit" value="Edit Faculty"/> 
+            </td>
+        </tr> 
+    </table>
+</form>
+
+<br/> <br/>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    <tr *ngFor="let fac of faculties; let i=index">
+        <td>{{fac.name}}</td>
+        <td>{{fac.age}}</td>
+        <td><button (click)="delete(i)">Delete</button></td>
+        <td><button (click)="update(i)">Edit</button></td>
+    </tr>
+</table>

@@ -1,0 +1,18 @@
+<div class="row d-flex justify-content-evenly shadow p-3 mb-5 bg-$red-500
+rounded">
+    <div class="card col-md-3 m-1 my-3 p-0 shadow p-1 mb-4 bg-$red-500
+    rounded" *ngFor="let fac of data">
+        <img [src]="fac.FacultyImage" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{fac.FacultyName}}</h5>
+            <p class="fw-bolder"><span class="fw-bold">Designation:</span> {{fac.FacultyDesignation}}</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <div class="d-flex justify-content-evenly">
+                <a routerLink="/faculty/{{fac.FacultyID}}" class="btn btn-primary">All Detail</a>
+                <!-- <a class="btn btn-success"(click)="update(fac.FacultyID)">Edit</a> -->
+                <a class="btn btn-danger" (click)="delete(fac.FacultyID)">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="card mb-3 shadow p-3 mb-5 bg-body rounded mt-3 mx-5">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img [src]="data.FacultyImage" class="img-fluid rounded-3" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h1 class="text-danger fst-italic">Profile</h1>
+                <h3 class="card-title fw-bold">{{data.FacultyName}}</h3>
+                <h4><span class="fw-bold">Designation: </span> {{data.FacultyDesignation}}</h4>
+                <h5><span class="fw-bold">FacultyEducationQualification: </span>{{data.FacultyEducationQualification}}</h5>
+                <h5><span class="fw-bold">FacultyExperience: </span>{{data.FacultyExperience}}</h5>
+                <h5><span class="fw-bold">FacultyEducationQualification: </span>{{data.FacultyWorkingSince}}</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore doloribus unde nesciunt deserunt sunt corporis! Esse, a ipsam? Laudantium, doloremque? Inventore, et. Tempora impedit ipsum illum neque id, repellat reprehenderit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis rem obcaecati error magni beatae minima, aut quisquam impedit ut culpa eligendi quibusdam eaque neque. Voluptatum itaque labore eum aliquid facilis ut dignissimos unde molestias.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam facere maiores rem voluptatum aliquam repellat, iste ad laboriosam aliquid! Est accusantium, cumque ullam nam incidunt reiciendis sunt nulla necessitatibus dolorum illum, pariatur quia ducimus?</small></p>
+
+                <div class="d-flex justify-content-evenly">
+                    <button routerLink="/faculty" class="btn btn-primary">Back</button>
+                    <button routerLink="/faculty/edit/{{data.FacultyID}}" class="btn btn-success">Edit</button>
+                    <button class="btn btn-danger" (click)="delete(id)">delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

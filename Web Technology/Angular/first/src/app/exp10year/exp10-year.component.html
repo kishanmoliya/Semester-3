@@ -1,0 +1,27 @@
+<p>exp10-year works!</p>
+
+<!-- <div class="container">
+    <div class="row" *ngFor="let fac of faculties">
+        <div >
+            <div class="card col-3 m-2 p-0" *ngIf="exp(fac.FacultyExperience)>=10">
+                <div class="card-body">
+                    <h5 class="card-title text-info">{{fac.FacultyName}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="container-fluid row justify-content-center" *ngFor="let fac of faculties">
+    <div class="card col-md-3 m-1 p-0" *ngIf="exp(fac.FacultyExperience)>=10">
+        <img [src]="fac.FacultyImage" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-info">{{fac.FacultyName}}</h5>
+            <p class="card-text">{{fac.FacultyDesignation}}
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>

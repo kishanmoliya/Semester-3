@@ -17,19 +17,11 @@ app.use(require('./router/auth'));
 
 const PORT = process.env.PORT;
 
-//Middelware
-const middelware = (req, res, next) => {
-    console.log(`middelWork work`)
-    next();
-}
 
-app.get('/', (req, res) => {
-    res.send(`it's home page`);
-});
 
-app.get('/about', middelware, (req, res) => {
-    res.send(`it's home about`);
-});
+// app.get('/about', middelware, (req, res) => {
+//     res.send(`it's home about`);
+// });
 
 app.get('/contactus', (req, res) => {
     res.send(`it's home contactus`);
